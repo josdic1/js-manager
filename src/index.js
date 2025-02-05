@@ -2,6 +2,8 @@ const init = () => {
 
   // DOM elements
   const list = document.getElementById('list')
+  const menu = document.getElementById('menu')
+
   // stateful vars
   let isLoading = true
   let inEditMode = false
@@ -46,6 +48,16 @@ const init = () => {
 
   }
 
+  function renderMenu() {
+    const menuHtml =
+      `<div class='menu-container' name='menu-container'>
+        <button class='btn' name='uncheck-btn' id='uncheck'>Uncheck all</button >
+      </div >`
+
+    menu.innerHTML = menuHtml
+
+  }
+
 
   // <----- CRUD functions -------->
   async function fetchGenres() {
@@ -57,6 +69,7 @@ const init = () => {
       const data = await r.json()
       genres = data
       renderList(data)
+      renderMenu()
     } catch (error) { console.error(error) }
   }
 
