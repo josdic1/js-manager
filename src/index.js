@@ -21,7 +21,29 @@ const init = () => {
 
   // <----- LIST -------->
   function renderList(listData) {
-    console.log(listData)
+
+    const gridItemList = genres.map(g => (
+      ` <div class='grid-item' id="${g.id}">${g.genre}</div>
+      <div class="grid-item">
+       <ul>
+      ${g.subgenres.map(item => (
+
+        `<div class='container subgenre' id="${g.id}">
+          <output type='text' id="${item.subgenre}" class='text subgenre'>${item.subgenre}</output>
+          <input type='checkbox' id="${item.subgenre}" class='cbox subgenre' />
+        </div>`
+      )).join('')} </ul></div>`
+    )).join('')
+
+    const listHtml =
+      `<div class="grid-container">
+  <div class="grid-item header">Genre</div>
+  <div class="grid-item header">Subgenres</div>
+  ${gridItemList}
+</div>`
+
+    list.innerHTML = listHtml
+
   }
 
 
