@@ -1,0 +1,26 @@
+{
+   "genres": [
+      {
+         "genre": "edm",
+         "subgenres": [
+            {
+               "subgenre": "progressive-house"
+            },
+            {
+               "subgenre": "future-bass"
+            }
+         ]
+      },
+      {
+         "genre": "rock",
+         "subgenres": [
+            {
+               "subgenre": "synthwave"
+            },
+            {
+               "subgenre": "pop-punk"
+            }
+         ]
+      }
+   ]
+}
