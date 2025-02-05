@@ -2,7 +2,6 @@ const init = () => {
 
   // DOM elements
   const list = document.getElementById('list')
-
   // stateful vars
   let isLoading = true
   let inEditMode = false
@@ -21,7 +20,9 @@ const init = () => {
   fetchGenres()
 
   // <----- LIST -------->
-
+  function renderList(listData) {
+    console.log(listData)
+  }
 
 
   // <----- CRUD functions -------->
@@ -33,6 +34,7 @@ const init = () => {
       }
       const data = await r.json()
       genres = data
+      renderList(data)
     } catch (error) { console.error(error) }
   }
 
