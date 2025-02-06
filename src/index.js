@@ -1,8 +1,10 @@
 const init = () => {
 
   // DOM elements
-  const list = document.getElementById('list')
   const menu = document.getElementById('menu')
+  const form = document.getElementById('form')
+  const list = document.getElementById('list')
+
 
   // stateful vars
   let isLoading = true
@@ -51,7 +53,8 @@ const init = () => {
   function renderMenu() {
     const menuHtml =
       `<div class='menu-container' name='menu-container'>
-        <button class='btn' name='uncheck-btn' id='uncheck'>Uncheck all</button >
+        <button class='btn' name='uncheck-btn' id='uncheck'>Uncheck all</button ><br>
+         <button class='btn' name='create-btn' id='create'>Create</button >
       </div >`
 
     menu.innerHTML = menuHtml
