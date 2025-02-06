@@ -3,6 +3,8 @@ const init = () => {
   // DOM elements
   const menu = document.getElementById('menu')
   const form = document.getElementById('form')
+  const tools = document.getElementById('tools')
+  const filter = document.getElementById('filter')
   const list = document.getElementById('list')
 
 
@@ -22,6 +24,18 @@ const init = () => {
 
   // init fetch
   fetchGenres()
+
+  // <---- MENU -------> 
+  function renderMenu() {
+    const menuHtml =
+      `<button class='btn' name='uncheck-btn' id='uncheck'>Uncheck all</button ><br>
+         <button class='btn' name='create-btn' id='create'>Create</button >`
+
+    menu.innerHTML = menuHtml
+
+    document.getElementById('uncheck').addEventListener('click', handleUncheckClick)
+
+  }
 
   // <----- LIST -------->
   function renderList(listData) {
@@ -50,30 +64,38 @@ const init = () => {
 
   }
 
-  function renderMenu() {
-    const menuHtml =
-      `<div class='menu-container' name='menu-container'>
-        <button class='btn' name='uncheck-btn' id='uncheck'>Uncheck all</button ><br>
-         <button class='btn' name='create-btn' id='create'>Create</button >
-      </div >`
+  function renderFilter() {
+    const filterHtml =
+      `<h2>Filter</h2>`
 
-    menu.innerHTML = menuHtml
-
-    document.getElementById('uncheck').addEventListener('click', handleUncheckClick)
+    filter.innerHTML = filterHtml
 
   }
 
-  function handleUncheckClick(e) {
-    const { checked } = e.target
+
+  function renderForm() {
+    const formHtml =
+      `<h2>Form</h2><h1>FORM</h1>`
+    console.log('belfore')
+    form.innerHTML = formHtml
+    console.log('after')
+  }
+
+  function renderTools() {
+    const toolsHtml =
+      `<h2>Tools</h2>`
+
+    tools.innerHTML = toolsHtml
+
+  }
+
+
+  function handleUncheckClick() {
     list.querySelectorAll('.checkbox').forEach(cb => {
       cb.checked = false
     })
-
   }
 
-  function uncheckAll(e) {
-    console.log(e.target)
-  }
 
 
   // <----- CRUD functions -------->
@@ -87,6 +109,10 @@ const init = () => {
       genres = data
       renderList(data)
       renderMenu()
+      renderForm()
+      console.log('fetch')
+      renderFilter()
+      renderTools()
     } catch (error) { console.error(error) }
   }
 

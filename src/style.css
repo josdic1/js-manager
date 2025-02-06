@@ -30,29 +30,6 @@ body {
   min-height: 100vh;
 }
 
-.menu-container {
-  height: 114em;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 10px;
-  width: 100%;
-  max-width: 500px;
-}
-.grid-item {
-  padding: 10px;
-  background: #1d0c0c;
-
-  border-radius: 5px;
-}
-.header {
-  font-weight: bold;
-  background: #ccc;
-  color: #5d0404;
-}
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
