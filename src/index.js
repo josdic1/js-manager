@@ -40,25 +40,34 @@ const init = () => {
   // <----- LIST -------->
   function renderList(listData) {
 
-    const gridItemList = genres.map(g => (
-      ` <div class='grid-item' id="${g.id}">${g.genre}</div>
-      <div class="grid-item">
-       <ul>
-      ${g.subgenres.map(item => (
-
-        `<div class='container subgenre' id="${g.id}">
-          <output type='text' id="${item.subgenre}" class='text subgenre'>${item.subgenre}</output>
-          <input type='checkbox' id="${item.subgenre}" class='checkbox' />
-        </div>`
-      )).join('')} </ul></div>`
-    )).join('')
+    const genreList = listData.map(g => (
+      `     <tr id="${g.id}" class="row">
+        <td class="td">${g.genre}</td>
+        <td class="td">
+        ${g.subgenres.map(s => (
+        `<div class='item' id="${g.id}">
+        <input type="checkbox" class="checkbox" id="${s.subgenre}" />
+        <output type="text" class="output">${s.subgenre}</output>
+        </div>
+        `
+      )).join('')}
+        </td>
+      </tr>`
+    ))
 
     const listHtml =
-      `<div class="grid-container">
-  <div class="grid-item header">Genre</div>
-  <div class="grid-item header">Subgenres</div>
-  ${gridItemList}
-</div>`
+      `<table class="th">
+        <thead class="thead">
+          <tr class="tr">
+            <th class="th">Genre</th>
+            <th class="th">Subgenres</th>
+          </tr>
+        </thead>
+        <tbody class="tbody">
+        ${genreList.join('')}
+        </tbody>
+      </table>`
+
 
     list.innerHTML = listHtml
 
@@ -75,10 +84,10 @@ const init = () => {
 
   function renderForm() {
     const formHtml =
-      `<h2>Form</h2><h1>FORM</h1>`
-    console.log('belfore')
+      `<h2>Form</h2>`
+
     form.innerHTML = formHtml
-    console.log('after')
+
   }
 
   function renderTools() {
@@ -110,7 +119,6 @@ const init = () => {
       renderList(data)
       renderMenu()
       renderForm()
-      console.log('fetch')
       renderFilter()
       renderTools()
     } catch (error) { console.error(error) }
