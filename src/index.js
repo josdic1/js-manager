@@ -12,12 +12,13 @@ const init = () => {
   let isLoading = true
   let inEditMode = false
   let genres = []
+  let filteredList = []
   let formData = {
     genre: '',
     subgenres: []
   }
   let filterData = {
-    selectFilter: '',
+    selectFilter: 'all',
     textFilter: ''
   }
   let selectedGenre = {
@@ -89,14 +90,12 @@ const init = () => {
          <option class="option" value="pop">Pop</option>
     </select>
        Subgenres: <input type="text" class="filter-input" id="textFilter" placeholder="Type to search..."/>
-       <input type="button" class="filter-input" id="clearFilter" value="Clear Filter" />
        </div>
          <div class="container-l1">
    <h3 class="h3">☰ Sort</h3>
      <input type="button" class="sort-input" id="ascGenreAlpha" value="Genre A → Z" />
    <input type="button"  class="sort-input"  id="descGenreAlpha" value="Genre Z → A" />
 
-    <button type="button" class="sort-input"  id="clearSort">Clear Sort</button>
           </div>
           <button type="button"  class="filter-container-input" id="clearAll">⚡ Clear All Filters/Sort</button>
       </div>`
@@ -107,34 +106,43 @@ const init = () => {
       input.addEventListener('input', handleFilterInput)
     ))
 
-    document.getElementById('clearFilter').addEventListener('click', handleClearFilterValues)
+
 
     filter.querySelectorAll('.sort-input').forEach(button => (
       button.addEventListener('click', handleSortButtonClick)
     ))
 
-    document.getElementById('clearSort').addEventListener('click', handleClearSort)
 
     document.getElementById('clearAll').addEventListener('click', handleClearAll)
 
   }
+
+
   function handleFilterInput(e) {
     const { id, value } = e.target
-
     filterData = {
       ...filterData,
       [id]: value
     }
+    const filterValues = filterData
+    filterList(filterValues)
   }
 
-  function handleClearFilterValues() {
-    document.getElementById('selectFilter').value = ''
-    document.getElementById('textFilter').value = ''
+  let subgenres = []
+  function filterList(filterValues) {
+    subgenres = genres.flatMap(genre => genre.subgenres);
+
+    filteredList = subgenres.filter(s => s.subgenre.toLowerCase().includes(filterValues.textFilter.toLowerCase()))
+    // filteredList = genres.filter(g =>
+    //   (g.genre === filterValues.selectFilter || filterValues.selectFilter === 'all')
+
+
+    renderList(filteredList)
   }
 
 
   function handleSortButtonClick(e) {
-    let sortedList = []
+    let sortedList = filteredList
     const { id } = e.target
     switch (id) {
       case 'ascGenreAlpha':
@@ -149,13 +157,11 @@ const init = () => {
     renderList(sortedList)
   }
 
-  function handleClearSort() {
-    renderList(genres)
-  }
 
   function handleClearAll() {
-    handleClearFilterValues()
-    handleClearSort()
+    document.getElementById('selectFilter').value = ''
+    document.getElementById('textFilter').value = ''
+    renderList(genres)
   }
 
 
