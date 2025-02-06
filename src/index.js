@@ -16,6 +16,10 @@ const init = () => {
     genre: '',
     subgenres: []
   }
+  let filterData = {
+    selectFilter: '',
+    textFilter: ''
+  }
   let selectedGenre = {
     id: '',
     genre: '',
@@ -85,7 +89,7 @@ const init = () => {
          <option class="option" value="pop">Pop</option>
     </select>
        Subgenres: <input type="text" class="filter-input" id="textFilter" placeholder="Type to search..."/>
-       <button type="button" class="filter-input" id="clearFilter">Clear Filter</button>
+       <input type="button" class="filter-input" id="clearFilter" value="Clear Filter" />
        </div>
          <div class="container-l1">
    <h3 class="h3">☰ Sort</h3>
@@ -99,11 +103,35 @@ const init = () => {
 
     filter.innerHTML = filterHtml
 
+    filter.querySelectorAll('.filter-input').forEach(input => (
+      input.addEventListener('input', handleFilterInput)
+    ))
+
+    document.getElementById('clearFilter').addEventListener('click', handleClearFilterValues)
+
     filter.querySelectorAll('.sort-input').forEach(button => (
       button.addEventListener('click', handleSortButtonClick)
     ))
 
+    document.getElementById('clearSort').addEventListener('click', handleClearSort)
+
+    document.getElementById('clearAll').addEventListener('click', handleClearAll)
+
   }
+  function handleFilterInput(e) {
+    const { id, value } = e.target
+
+    filterData = {
+      ...filterData,
+      [id]: value
+    }
+  }
+
+  function handleClearFilterValues() {
+    document.getElementById('selectFilter').value = ''
+    document.getElementById('textFilter').value = ''
+  }
+
 
   function handleSortButtonClick(e) {
     let sortedList = []
@@ -115,11 +143,19 @@ const init = () => {
       case 'descGenreAlpha':
         sortedList = [...genres].sort((a, b) => b.genre.localeCompare(a.genre))
         break;
-      case 'clearSort':
-        sortedList = [...genres]
+      default:
         break;
     }
     renderList(sortedList)
+  }
+
+  function handleClearSort() {
+    renderList(genres)
+  }
+
+  function handleClearAll() {
+    handleClearFilterValues()
+    handleClearSort()
   }
 
 
