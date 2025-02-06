@@ -32,7 +32,7 @@ const init = () => {
 
         `<div class='container subgenre' id="${g.id}">
           <output type='text' id="${item.subgenre}" class='text subgenre'>${item.subgenre}</output>
-          <input type='checkbox' id="${item.subgenre}" class='cbox subgenre' />
+          <input type='checkbox' id="${item.subgenre}" class='checkbox' />
         </div>`
       )).join('')} </ul></div>`
     )).join('')
@@ -56,6 +56,20 @@ const init = () => {
 
     menu.innerHTML = menuHtml
 
+    document.getElementById('uncheck').addEventListener('click', handleUncheckClick)
+
+  }
+
+  function handleUncheckClick(e) {
+    const { checked } = e.target
+    list.querySelectorAll('.checkbox').forEach(cb => {
+      cb.checked = false
+    })
+
+  }
+
+  function uncheckAll(e) {
+    console.log(e.target)
   }
 
 
