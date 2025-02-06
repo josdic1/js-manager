@@ -31,10 +31,10 @@
                "subgenre": "hardstyle"
             },
             {
-               "subgenre": "glitch-hop"
+               "subgenre": "progressive-trance"
             },
             {
-               "subgenre": "chillstep"
+               "subgenre": "melodic-techno"
             },
             {
                "subgenre": "vaporwave"
@@ -48,160 +48,18 @@
                "subgenre": "synthwave"
             },
             {
+               "subgenre": "indie-dance"
+            }
+         ]
+      },
+      {
+         "genre": "pop",
+         "subgenres": [
+            {
+               "subgenre": "pop-country"
+            },
+            {
                "subgenre": "pop-punk"
-            },
-            {
-               "subgenre": "folk-rock"
-            },
-            {
-               "subgenre": "garage-rock"
-            },
-            {
-               "subgenre": "dream-pop"
-            },
-            {
-               "subgenre": "shoegaze"
-            },
-            {
-               "subgenre": "alt-folk"
-            },
-            {
-               "subgenre": "lo-fi"
-            },
-            {
-               "subgenre": "math-rock"
-            },
-            {
-               "subgenre": "indie-pop"
-            },
-            {
-               "subgenre": "chamber-pop"
-            },
-            {
-               "subgenre": "post-rock"
-            }
-         ]
-      },
-      {
-         "genre": "rock",
-         "subgenres": [
-            {
-               "subgenre": "hard-rock"
-            },
-            {
-               "subgenre": "punk-rock"
-            },
-            {
-               "subgenre": "blues-rock"
-            },
-            {
-               "subgenre": "alternative-rock"
-            },
-            {
-               "subgenre": "psychedelic-rock"
-            },
-            {
-               "subgenre": "southern-rock"
-            },
-            {
-               "subgenre": "glam-rock"
-            },
-            {
-               "subgenre": "post-hardcore"
-            },
-            {
-               "subgenre": "grunge"
-            },
-            {
-               "subgenre": "industrial-rock"
-            },
-            {
-               "subgenre": "stoner-rock"
-            },
-            {
-               "subgenre": "art-rock"
-            }
-         ]
-      },
-      {
-         "genre": "hip-hop",
-         "subgenres": [
-            {
-               "subgenre": "boom-bap"
-            },
-            {
-               "subgenre": "trap"
-            },
-            {
-               "subgenre": "mumble-rap"
-            },
-            {
-               "subgenre": "jazz-rap"
-            },
-            {
-               "subgenre": "conscious-rap"
-            },
-            {
-               "subgenre": "gangsta-rap"
-            },
-            {
-               "subgenre": "crunk"
-            },
-            {
-               "subgenre": "lo-fi-hip-hop"
-            },
-            {
-               "subgenre": "drill"
-            },
-            {
-               "subgenre": "underground-hip-hop"
-            },
-            {
-               "subgenre": "rap-rock"
-            },
-            {
-               "subgenre": "alternative-hip-hop"
-            }
-         ]
-      },
-      {
-         "genre": "metal",
-         "subgenres": [
-            {
-               "subgenre": "heavy-metal"
-            },
-            {
-               "subgenre": "death-metal"
-            },
-            {
-               "subgenre": "black-metal"
-            },
-            {
-               "subgenre": "power-metal"
-            },
-            {
-               "subgenre": "progressive-metal"
-            },
-            {
-               "subgenre": "metalcore"
-            },
-            {
-               "subgenre": "doom-metal"
-            },
-            {
-               "subgenre": "symphonic-metal"
-            },
-            {
-               "subgenre": "thrash-metal"
-            },
-            {
-               "subgenre": "folk-metal"
-            },
-            {
-               "subgenre": "nu-metal"
-            },
-            {
-               "subgenre": "sludge-metal"
             }
          ]
       }
